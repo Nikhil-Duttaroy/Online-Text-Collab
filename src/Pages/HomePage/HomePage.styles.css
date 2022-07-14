@@ -1,0 +1,51 @@
+.homePageWrapper{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.formWrapper{
+    background-color: #1c1e29;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 450px;
+    max-width: 90%;
+}
+.logoImage{
+    height: 6rem;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.label{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBox{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-bottom: 1rem;
+    background-color: #eee;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.joinBtn,.createBtn{
+    background-color: #00ecdd;
+    width: 50%;
+    align-self: center;
+}
+
+.joinBtn:hover,.createBtn:hover{
+    background-color:#37ff83
+}
