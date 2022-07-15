@@ -1,0 +1,15 @@
+.mainWrapper{
+    display: grid; 
+  grid-template-columns: 0.2fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; }
+
+  .sideBar{
+    background-color: #1c1e29;
+    height: 100vh;
+  }
+
+  .sideBarLogo{
+    width: 12rem;
+    padding: 1rem;
+  }
