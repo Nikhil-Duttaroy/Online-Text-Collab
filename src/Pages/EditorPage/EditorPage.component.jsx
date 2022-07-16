@@ -1,12 +1,33 @@
-import React,{ useState } from 'react'
+import React, { useRef, useState, useEffect } from "react";
 import "./EditorPage.Styles.css"
 import logo from "../../assets/logo.svg";
+import { useLocation } from "react-router-dom";
+
 
 import UserAvatar from "../../components/UserAvatar/UserAvatar.component";
 import Editor from './../../components/Editor/Editor.component';
 
+import { FaCopy } from "react-icons/fa";
+
+
+import { initSocket } from './../../socket';
+import { ACTIONS } from './../../Actions';
 
 const EditorPage = () => {
+
+  const location=useLocation()
+   const socketRef = useRef(null);
+
+   useEffect(() => {
+    const init=async()=>{
+      socketRef.current=await initSocket();
+      // socketRef.Ref.emit(ACTIONS.JOIN, {
+      //   roomId,
+      //   userName: location?.state?.userName,
+      // });
+    }
+    init()
+   },[])
 
   //state
   const [users, setUsers] = useState([
@@ -50,7 +71,7 @@ const EditorPage = () => {
           </div>
         </div>
         <button className='btn copyBtn'>
-          <i className='fa fa-copy'></i> Room Id
+          <FaCopy /> &nbsp;Room ID
         </button>
         <button className='btn leaveBtn'>Leave</button>
       </div>

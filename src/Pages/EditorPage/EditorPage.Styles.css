@@ -42,7 +42,8 @@
 }
 
 .copyBtn:hover,.leaveBtn:hover{
-    background-color:#37ff83
+    background-color:#37ff83;
+    color:black
 }
 
 .leaveBtn{
