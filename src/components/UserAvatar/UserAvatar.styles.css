@@ -1,0 +1,29 @@
+.avatarWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar{
+    font-size: 16px;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background-color: #009578;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar::after{
+    content:attr(data-label);
+    font-weight:bolder ;
+    font-family: 'Readex-Pro',sans-serif;
+    color: black;
+
+}
+.avatarName{
+    padding: 0;
+    margin: 5px;
+    color: white;
+}
