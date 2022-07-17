@@ -4,7 +4,7 @@ import "./HomePage.styles.css";
 import { useNavigate } from "react-router-dom";
 
 import { v4 as uuid } from "uuid";
-import { ToastContainer, toast } from "react-toastify";
+import {toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const HomePage = () => {
@@ -91,7 +91,6 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };
