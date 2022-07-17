@@ -1,6 +1,5 @@
 .CodeMirror{
     font-size: 1.4rem;
-    /* min-height: calc(100vh-20px); */
-    height: 100vh;
     line-height: 1.6;
+    height: 100% !important
 }

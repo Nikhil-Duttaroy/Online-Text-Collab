@@ -27,7 +27,7 @@ const Editor = () => {
   }, []);
 
   return (
-    <textarea  id="realtimeEditor" cols="30" rows="10"></textarea>
+    <textarea  id="realtimeEditor"></textarea>
   )
 }
 
