@@ -26,6 +26,7 @@ const EditorPage = () => {
 
   //state
   const socketRef = useRef(null);
+  const codeRef=useRef(null);
   const [users, setUsers] = useState([]);
 
   //functions
@@ -50,6 +51,17 @@ const EditorPage = () => {
       draggable: true,
       progress: undefined,
     });
+
+    const notifyCopied = () =>
+      toast.success(`Room ID Copied`, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
   useEffect(() => {
     const init = async () => {
@@ -77,6 +89,10 @@ const EditorPage = () => {
             console.log(userName);
           }
           setUsers(clients);
+          socketRef.current.emit(ACTIONS.SYNC_CODE, {
+            code: codeRef.current,
+            socketId,
+          });
         }
       );
 
@@ -102,6 +118,7 @@ const EditorPage = () => {
     return <Navigate to='/' />;
   }
 
+
   return (
     <div className='mainWrapper'>
       <div className='sideBar'>
@@ -114,13 +131,24 @@ const EditorPage = () => {
             ))}
           </div>
         </div>
-        <button className='btn copyBtn'>
+        <button
+          className='btn copyBtn'
+          onClick={() => {
+            navigator.clipboard.writeText(roomId)
+            notifyCopied();
+          }}
+        >
           <FaCopy /> &nbsp;Room ID
         </button>
-        <button className='btn leaveBtn'>Leave</button>
+        <button className='btn leaveBtn' onClick={() => {
+          if (confirm("Are you Sure You Want to Leave????")) reactNavigate("/");
+          return}} >
+          Leave
+        </button>
       </div>
       <div className='editorWrapper'>
-        <Editor />
+        {/* onCodeChnage is bad practice as taking prop from child to parent but used because its only for one component */}
+        <Editor socketRef={socketRef} roomId={roomId} onCodeChange={(code) => {codeRef.current=code}}/>
       </div>
     </div>
   );
