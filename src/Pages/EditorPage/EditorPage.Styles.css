@@ -1,7 +1,7 @@
 .mainWrapper {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .sideBar {
@@ -49,4 +49,8 @@
 .leaveBtn{
   background-color: #424242;
   color: white;
+}
+
+.editorWrapper{
+  height: 100vh;
 }
