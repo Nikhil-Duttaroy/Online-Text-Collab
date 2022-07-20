@@ -9,6 +9,9 @@ import "codemirror/theme/dracula.css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/addon/edit/closetag";
 import "codemirror/addon/edit/closebrackets";
+import "codemirror/addon/hint/show-hint"
+import "codemirror/addon/hint/javascript-hint"
+import "codemirror/addon/hint/show-hint.css"
 
 const Editor = ({ socketRef, roomId, onCodeChange }) => {
   const editorRef = useRef(null);
@@ -18,11 +21,17 @@ const Editor = ({ socketRef, roomId, onCodeChange }) => {
       editorRef.current = Codemirror.fromTextArea(
         document.querySelector("#realtimeEditor"),
         {
-          mode: { name: "default", json: true },
+          mode: { name: "javascript", globalVars: true },
           theme: "dracula",
           autoCloseTags: true,
           autoCloseBrackets: true,
           lineNumbers: true,
+          tabSize: 3,
+          showHint: true,
+          hintOptions: true,
+          extraKeys: {
+            "Ctrl-Space": "autocomplete",
+          },
         }
       );
       //changes hold the changes in the editor ref and instance is the editorRef instance in use
